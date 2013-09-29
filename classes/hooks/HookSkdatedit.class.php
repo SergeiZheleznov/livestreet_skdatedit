@@ -13,7 +13,8 @@ class PluginSkdatedit_HookSkdatedit extends Hook {
     }
    	public function form_insert() {
       if (!$this->PluginSkdatedit_Skdatedit_Canedit() or Router::GetActionEvent()=='add' ) return;
-		  return $this->Viewer_Fetch(Plugin::GetTemplatePath(__CLASS__).'form_insert.tpl');
+        $this->Viewer_Assign('sPluginDateditWebPath',Plugin::GetTemplateWebPath(__CLASS__));
+        return $this->Viewer_Fetch(Plugin::GetTemplatePath(__CLASS__).'form_insert.tpl');
 	}
     public function add_var($aVars) {
         if (!$this->PluginSkdatedit_Skdatedit_Canedit() ) return $aVars;
