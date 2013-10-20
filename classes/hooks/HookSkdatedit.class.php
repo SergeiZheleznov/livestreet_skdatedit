@@ -23,7 +23,7 @@ class PluginSkdatedit_HookSkdatedit extends Hook {
         return $aVars;
     }
     public function add_date($aVars) {
-        if (!$this->PluginSkdatedit_Skdatedit_Canedit() ) return $aVars;
+        if (!$this->PluginSkdatedit_Skdatedit_Canedit() or Router::GetActionEvent()=='add' ) return $aVars;
         $oTopic = $aVars['oTopic'];
         $dateAdd = getRequest('sk_topic_date_add');
         $timeAdd = getRequest('sk_topic_time_add');
