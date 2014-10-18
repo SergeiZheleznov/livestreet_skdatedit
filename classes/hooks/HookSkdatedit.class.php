@@ -27,6 +27,7 @@ class PluginSkdatedit_HookSkdatedit extends Hook {
         $oTopic = $aVars['oTopic'];
         $dateAdd = getRequest('sk_topic_date_add');
         $timeAdd = getRequest('sk_topic_time_add');
+		if(!isset($dateAdd) or !isset($timeAdd)) return $aVars;
         list($d,$m,$y)=explode('.',$dateAdd);
         list($hrs,$min,$sec)=explode(':',$timeAdd);
         $timeAdd = "$hrs:$min:$sec";
